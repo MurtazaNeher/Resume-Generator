@@ -7,73 +7,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Resume Generator</title>
+
+    <script src="https://kit.fontawesome.com/ccbe6a25e7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <section id="form">
+    <header id="header">
+        <h1 id="header-heading">Resume Generator</h1>
+        <a href="https://murtazaneherwala.netlify.app/">By Murtaza Neher Wala</a>
 
-        <header id="header">
-            <h1 id="header-heading">Resume Generator</h1>
-        </header>
+    </header>
 
-        <div id="intro" class="container">
+    <section id="input-form">
+
+        <div id="intro-input-div" class="container">
             <label for="name-input">Name</label>
             <input type="text" id="name-input">
 
-            <label for="name-input">Address</label>
-            <input type="text" id="address-input">
+            <label for="address-input">Address</label>
+            <textarea name="address input" id="address-input" class="txt-area"></textarea>
 
             <label for="contact-num-input">Contact Number</label>
             <input type="number" id="contact-num-input">
 
             <label for="e-mail-input">e-mail</label>
-            <input type="email" id="e-mail-input">
+            <input type="email" id="email-input">
 
         </div>
 
-        <div id="objective" class="container">
+        <div id="objective-input-div" class="container">
             <h2>Objective</h2>
-            <input type="text" id="objective-input">
+            <textarea name="objective" id="objective-input" class="txt-area" placeholder="To join an organization in which my hard work, sincerity & honesty will be grow along with the organization."></textarea>
+
         </div>
 
-        <div id="education" class="container">
+        <div id="education-input-div" class="container">
             <h2>Education Qualification</h2>
 
-            <textarea name="education qualification" id="education-input" class="txt-area"></textarea>
+            <textarea name="education qualification" id="education-input" class="txt-area education-txt-area"></textarea>
 
             <button id="add-education-btn" class="btn" onclick="addNewEducationField()">Add</button>
         </div>
 
-        <div id="work" class="container">
+        <div id="work-input-div" class="container">
             <h2>Work Experience</h2>
-            <textarea name="work experience" id="work-input" class="txt-area"></textarea>
+            <textarea name="work experience" id="work-input" class="txt-area work-txt-area"></textarea>
 
             <button id="add-work-btn" class="btn" onclick="addNewWorkField()">Add</button>
 
         </div>
 
-        <div id="tech" class="container">
+        <div id="tech-input-div" class="container">
             <h2>Technical Knowledge</h2>
 
-            <textarea name="technical knowledge" id="technical-knowledge-input" class="txt-area"></textarea>
+            <textarea name="technical knowledge" id="tech-input" class="txt-area tech-txt-area"></textarea>
 
-            <button id="add-technical-btn" class="btn" onclick="addNewTechField()">Add</button>
+            <button id="add-tech-btn" class="btn" onclick="addNewTechField()">Add</button>
 
 
         </div>
 
-        <div id="personal" class="container">
+        <div id="personal-input-div" class="container">
             <h2>Personal Information</h2>
 
             <label for="dob-input">DOB</label>
-            <input type="text" id="dob-input">
-
-            <label for="father-input">Father's / Husband Name</label>
-            <input type="text" id="father-input">
+            <input type="date" id="dob-input">
+            <label for="gender-input">Gender</label>
+            <input type="text" id="gender-input">
 
             <label for="martial-input">Martial Status</label>
             <input type="text" id="martial-input">
+
+            <label for="father-input">Father's / Husband Name</label>
+            <input type="text" id="father-input">
 
             <label for="nationality-input">Nationality</label>
             <input type="text" id="nationality-input">
@@ -82,122 +89,212 @@
             <input type="text" id="lang-input">
 
             <label for="hobby-input">Hobbies</label>
-            <input type="text" id="hobby-input">
+            <input type="text" id="hobbies-input">
         </div>
 
-        <div id="declaration" class="container">
+        <div id="declaration-input-div" class="container">
             <h2>Declaration</h2>
-            <input type="text" id="declaration-input">
+
+            <textarea name="declaration input" id="declaration-input" class="txt-area" placeholder="I hereby declare that all the information given by me is true to the best of my knowledge and belief."></textarea>
+
         </div>
 
-        <button id="view-resume-btn" class="btn">View Resume</button>
+        <button id="generate-resume-btn" class="btn" onclick="generateResume()">Generate Resume</button>
     </section>
+
+    <nav id="edit-resume-nav">
+
+        <ul>
+
+            <li>
+                <div id="change-color" class="edit-keys" onclick="showColors()">
+                    <i class="fas fa-palette"> </i>
+
+                    <span>color</span>
+
+                </div>
+
+                <div id="colors" class="edit-values">
+                    <i class="fas fa-circle" id="color1" onclick="changeColor1()"></i>
+                    <i class="fas fa-circle" id="color2" onclick="changeColor2()"></i>
+                    <i class="fas fa-circle" id="color3" onclick="changeColor3()"></i>
+                    <i class="fas fa-circle" id="color4" onclick="changeColor4()"></i>
+                    <i class="fas fa-circle" id="color5" onclick="changeColor5()"></i>
+                    <i class="fas fa-circle" id="color6" onclick="changeColor6()"></i>
+
+                    <input type="color" name="" id="custom-color"></input>
+                    <button id="custom-color-btn" onclick="changeColorCustom()">apply</button>
+
+                </div>
+            </li>
+
+            <li>
+
+                <div id="change-font" class="edit-keys" onclick="showFonts()">
+                    <i class="fas fa-font"></i>
+                    <span>font</span>
+                </div>
+
+                <div id="fonts" class="edit-values">
+                    <div id="fonts-label-div">
+
+                        <label for="#change-headings-font">headings</label>
+
+                        <input type="checkbox" name="Change Heading Fonts" id="change-headings-font">
+                    </div>
+                    <div id="fonts-label-div">
+
+                        <label for="#change-content-font">content</label>
+
+                        <input type="checkbox" name="Change Heading Fonts" id="change-content-font">
+                    </div>
+
+                    <span id="font1" onclick="changeFont1()">Abc</span>
+                    <span id="font2" onclick="changeFont2()">Abc</span>
+                    <span id="font3" onclick="changeFont3()">Abc</span>
+                    <span id="font4" onclick="changeFont4()">Abc</span>
+                    <span id="font5" onclick="changeFont5()">Abc</span>
+
+                </div>
+            </li>
+            <li>
+
+                <div id="change-size" class="edit-keys" onclick="showSizes()">
+                    <i class="fas fa-text-height"></i>
+                    <span>text-size</span>
+                </div>
+
+                <div id="text-sizes" class="edit-values">
+                    <div id="size-label-div">
+
+                        <label for="#change-headings-size">headings</label>
+
+                        <input type="checkbox" name="Change Heading Size" id="change-headings-size">
+                    </div>
+                    <div id="size-label-div">
+
+                        <label for="#change-content-size">content</label>
+
+                        <input type="checkbox" name="Change Content Size" id="change-content-size">
+                    </div>
+
+                    <i class="fas fa-plus-circle" onclick="increaseFontSize()"></i>
+                    <i class="fas fa-minus-circle" onclick="decreaseFontSize()"></i>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
     <main id="resume">
 
-        <h2 id="resume-heading">Resume</h2>
+        <h2 id="resume-output-heading">Resume</h2>
 
-        <div id="intro-output-box">
+        <div id="intro-output-div" class="padding-c">
             <div id="name-output">John</div>
             <div id="address-output">142 A , California</div>
             <div id="contact-num-output">Contact num : 9876543215</div>
-            <div id="email-ouput">e-mail : xyz@gmail.com</div>
+            <div id="email-output">e-mail : xyz@gmail.com</div>
         </div>
 
-        <div id="objective-output-box">
-            <h2 class="headings">Objective</h2>
+        <div id="objective-output-div" class="padding-c">
+            <h2 class="headings" id="objective-output-heading">Objective</h2>
             <div id="objective-output">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores explicabo dolores optio placeat molestiae illum accusamus eius quae excepturi, quos ea quas laborum quidem fugiat eum ut voluptates debitis iure?</div>
         </div>
 
-        <div id="education-output-box">
-            <h2 class="headings">Education Qualification</h2>
+        <div id="education-output-div" class="padding-c ul">
+            <h2 class="headings" id="education-output-heading">Education Qualification</h2>
 
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
+            <ul id="e-ul">
+
             </ul>
 
         </div>
 
-        <div id="work-output-box">
-            <h2 class="headings">Work Experience</h2>
+        <div id="work-output-div" class="padding-c ul">
+            <h2 class="headings" id="work-output-heading">Work Experience</h2>
 
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
+            <ul id="w-ul">
+
             </ul>
 
         </div>
-        <div id="tech-output-box">
-            <h2 class="headings">Work Experience</h2>
+        <div id="tech-output-div" class="padding-c ul">
+            <h2 class="headings" id="tech-output-heading">Technical knowledge</h2>
 
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, saepe odit? Error?</li>
+            <ul id="t-ul">
+
             </ul>
 
         </div>
 
-        <div id="personal-output-box">
-            <h2 class="headings">Personal Information</h2>
+        <div id="personal-output-div" class="padding-c">
+            <h2 class="headings" id="personal-output-heading">Personal Information</h2>
             <table>
 
                 <tr>
                     <td>DOB</td>
-                    <td>15 / 08 /2002</td>
-                </tr>
-
-                <tr>
-                    <td>Father's / Husband's Name </td>
-                    <td>Cristopher</td>
+                    <td id="dob-output">15 / 08 /2002</td>
                 </tr>
 
                 <tr>
                     <td>Martial Status</td>
-                    <td>Unmarried</td>
+                    <td id="martial-output">Unmarried</td>
                 </tr>
 
                 <tr>
+                    <td>Gender</td>
+                    <td id="gender-output">Male</td>
+                </tr>
+                <tr>
+                    <td>Father's / Husband's Name </td>
+                    <td id="father-output">Cristopher</td>
+                </tr>
+
+
+                <tr>
                     <td>Nationality</td>
-                    <td>Non-Indian</td>
+                    <td id="nationality-output">Non-Indian</td>
                 </tr>
 
                 <tr>
                     <td>Languages</td>
-                    <td>English , Arabic , Hindi</td>
+                    <td id="lang-output">English , Arabic , Hindi</td>
                 </tr>
 
                 <tr>
                     <td>Hobbies</td>
-                    <td>Reading , Swimming </td>
+                    <td id="hobbies-output">Reading , Swimming </td>
                 </tr>
             </table>
 
         </div>
 
-        <div id="declaration-output-box">
+        <div id="declaration-output-div" class="padding-c">
 
-            <h2 class="headings">Declaration</h2>
+            <h2 class="headings" id="declaration-output-heading">Declaration</h2>
 
             <div id="declaration-output">Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid sed ad modi est vitae distinctio quisquam ab atque sequi!</div>
         </div>
-
-
-
-
-
-
-
+        <div id="name-output-ending">John</div>
 
     </main>
 
 
+    <div id="btn-container">
 
+        <button class="btn" id="edit-btn" onclick="editResume()"> edit</button>
+
+        <button id="print-btn" onclick="printResume()" class="btn">print</button>
+
+    </div>
+
+
+    <footer id="footer">
+        Copyright &copy; <a href="https://murtazaneherwala.netlify.app/">Murtaza Neher wala </a>| All rights reserved!
+    </footer>
 
     <script src="/app.js"></script>
 </body>
