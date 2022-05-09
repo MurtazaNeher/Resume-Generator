@@ -149,6 +149,7 @@ const footer = document.getElementById("footer");
 // Variables
 
 let headingFontSize = 23;
+let resumeHeadingFontSize = 33;
 
 let contentFontSize = 16;
 
@@ -286,6 +287,15 @@ function printResume() {
 
     window.print();
 
+    header.style.display = "flex";
+    resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
+    resume.style.width = "70vw";
+    printBtn.style.display = "block";
+    editResumeNav.style.display = "block";
+    footer.style.display = "flex";
+    editBtn.style.display = "block";
+
+
 
 }
 
@@ -301,8 +311,6 @@ function editResume() {
     resume.style.display = "none";
     editBtn.style.display = "none";
     footer.style.display = "flex";
-
-
 
 }
 
@@ -421,15 +429,16 @@ function changeFont5() {
 
 function increaseFontSize() {
 
-
-
-
-
     if (document.getElementById("change-headings-size").checked == true) {
         headingFontSize += 2;
+        resumeHeadingFontSize += 2;
         let hfont = headingFontSize + "px";
 
-        objectiveOutputHeading.style.fontSize = personalOutputHeading.style.fontSize = educationOutputHeading.style.fontSize = workOutputHeading.style.fontSize = techOutputHeading.style.fontSize = declarationOutputHeading.style.fontSize = resumeOutputHeading.style.fontSize = hfont;
+        objectiveOutputHeading.style.fontSize = personalOutputHeading.style.fontSize = educationOutputHeading.style.fontSize = workOutputHeading.style.fontSize = techOutputHeading.style.fontSize = declarationOutputHeading.style.fontSize = hfont;
+
+        hfont = resumeHeadingFontSize + "px";
+
+        resumeOutputHeading.style.fontSize = hfont;
     }
 
     if (document.getElementById("change-content-size").checked == true) {
@@ -441,18 +450,25 @@ function increaseFontSize() {
 }
 
 function decreaseFontSize() {
-    headingFontSize -= 2;
-    contentFontSize -= 1;
-    let hfont = headingFontSize + "px";
-    let cfont = contentFontSize + "px";
 
     if (document.getElementById("change-headings-size").checked == true) {
-        objectiveOutputHeading.style.fontSize = personalOutputHeading.style.fontSize = educationOutputHeading.style.fontSize = workOutputHeading.style.fontSize = techOutputHeading.style.fontSize = declarationOutputHeading.style.fontSize = resumeOutputHeading.style.fontSize = hfont;
+
+        headingFontSize -= 2;
+        resumeHeadingFontSize -= 2;
+        let hfont = headingFontSize + "px";
+
+
+        objectiveOutputHeading.style.fontSize = personalOutputHeading.style.fontSize = educationOutputHeading.style.fontSize = workOutputHeading.style.fontSize = techOutputHeading.style.fontSize = declarationOutputHeading.style.fontSize = hfont;
+        hfont = resumeHeadingFontSize + "px";
+        resumeOutputHeading.style.fontSize = hfont;
 
     }
 
     if (document.getElementById("change-content-size").checked == true) {
+        contentFontSize -= 1;
+        let cfont = contentFontSize + "px";
         resume.style.fontSize = cfont;
+
     }
 
 }
