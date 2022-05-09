@@ -251,6 +251,13 @@
     .container input {
         padding: 10px;
         margin-bottom: 20px;
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+    }
+    
+    .container textarea {
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
     }
     
     .btn {
