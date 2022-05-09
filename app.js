@@ -286,6 +286,9 @@ function printResume() {
     editBtn.style.display = "none";
 
     window.print();
+}
+
+function goToResume() {
 
     header.style.display = "flex";
     resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
@@ -294,9 +297,6 @@ function printResume() {
     editResumeNav.style.display = "block";
     footer.style.display = "flex";
     editBtn.style.display = "block";
-
-
-
 }
 
 
