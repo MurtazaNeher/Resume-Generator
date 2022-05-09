@@ -287,20 +287,17 @@ function printResume() {
 
     window.print();
 
-    goToResume();
+    setTimeout(() => {
+        header.style.display = "flex";
+        resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
+        resume.style.width = "70vw";
+        printBtn.style.display = "block";
+        editResumeNav.style.display = "block";
+        footer.style.display = "flex";
+        editBtn.style.display = "block";
+    }, 1000);
+
 }
-
-function goToResume() {
-
-    header.style.display = "flex";
-    resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
-    resume.style.width = "70vw";
-    printBtn.style.display = "block";
-    editResumeNav.style.display = "block";
-    footer.style.display = "flex";
-    editBtn.style.display = "block";
-}
-
 
 function editResume() {
 
