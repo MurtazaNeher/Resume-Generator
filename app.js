@@ -286,6 +286,8 @@ function printResume() {
     editBtn.style.display = "none";
 
     window.print();
+
+    goToResume();
 }
 
 function goToResume() {
