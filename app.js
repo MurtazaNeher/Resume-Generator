@@ -98,7 +98,23 @@ const nationalityOutput = document.getElementById("nationality-output");
 
 const langOutput = document.getElementById("lang-output");
 
-const hobbiesOutput = document.getElementById("hobbies-output");
+const hobbiesOutput = document.getElementById("hobbies-output-row");
+
+const dobOutputRow = document.getElementById("dob-output-row");
+
+const genderOutputRow = document.getElementById("gender-output-row");
+
+const martialOutputRow = document.getElementById("martial-output-row");
+
+const fatherOutputRow = document.getElementById("father-output-row");
+
+const nationalityOutputRow = document.getElementById("nationality-output-row");
+
+const langOutputRow = document.getElementById("lang-output-row");
+
+const hobbiesOutputRow = document.getElementById("hobbies-output-row");
+
+
 
 // Declaration Input
 const declarationInputDiv = document.getElementById("declaration-input-div");
@@ -192,16 +208,25 @@ function generateResume() {
     resume.style.display = "block";
     editResumeNav.style.display = "block";
 
+    if (nameInput.value) {
 
-    nameOuput.innerHTML = nameInput.value;
+        nameOuput.innerHTML = nameInput.value;
 
-    nameOutputEnding.innerHTML = nameInput.value;
+        nameOutputEnding.innerHTML = nameInput.value;
+    }
 
-    addressOuput.innerHTML = addressInput.value;
 
-    contactNumOuput.innerHTML = "Contact Num : " + contactNumInput.value;
+    if (addressInput.value) {
+        addressOuput.innerHTML = addressInput.value;
+    }
 
-    emailOuput.innerHTML = "e-mail : " + emailInput.value;
+    if (contactNumInput.value) {
+        contactNumOuput.innerHTML = "Contact Num : " + contactNumInput.value;
+    }
+
+    if (emailInput.value) {
+        emailOuput.innerHTML = "e-mail : " + emailInput.value;
+    }
 
     if (!objectiveInput.value) {
         objectiveInput.value = "To join an organization in which my hard work, sincerity & honesty will be grow along with the organization."
@@ -257,13 +282,54 @@ function generateResume() {
 
     // for personal infromation
 
-    dobOutput.innerHTML = dobInput.value;
-    martialOutput.innerHTML = martialInput.value;
-    genderOutput.innerHTML = genderInput.value;
-    fatherOutput.innerHTML = fatherInput.value;
-    nationalityOutput.innerHTML = nationalityInput.value;
-    langOutput.innerHTML = langInput.value;
-    hobbiesOutput.innerHTML = hobbiesInput.value;
+    if (dobInput.value || martialInput.value || genderInput.value || fatherInput.value || nationalityInput.value || langInput.value || hobbiesInput.value) {
+
+        personalOutputDiv.style.display = "block";
+
+        if (dobInput.value) {
+            dobOutput.innerHTML = dobInput.value;
+        } else {
+            dobOutputRow.style.display = "none";
+        }
+
+        let martialValue = document.querySelector('input[name = "martial-radio-btn"]:checked').value;
+
+        martialOutput.innerHTML = martialValue;
+
+
+        let genderValue = document.querySelector('input[name = "gender-radio-btn"]:checked').value;
+
+        genderOutput.innerHTML = genderValue;
+
+
+        if (fatherInput.value) {
+            fatherOutput.innerHTML = fatherInput.value;
+        } else {
+            fatherOutputRow.style.display = "none";
+        }
+
+        if (nationalityInput.value) {
+            nationalityOutput.innerHTML = nationalityInput.value;
+        } else {
+            nationalityOutputRow.style.display = "none";
+        }
+        if (langInput.value) {
+            langOutput.innerHTML = langInput.value;
+
+        } else {
+            langOutputRow.style.display = "none";
+        }
+        if (hobbiesInput.value) {
+            hobbiesOutput.innerHTML = hobbiesInput.value;
+
+        } else {
+            hobbiesOutputRow.style.display = "none";
+        }
+
+    } else {
+        personalOutputDiv.style.display = "none";
+    }
+
 
     // For Declaration
 
@@ -385,6 +451,7 @@ function changeResumeColor(color) {
     personalOutputHeading.style.color = color;
     declarationOutputHeading.style.color = color;
     nameOuput.style.color = color;
+    resumeOutputHeading.style.color = color;
 
     objectiveOutputHeading.style.borderBottomColor = personalOutputHeading.style.borderBottomColor = educationOutputHeading.style.borderBottomColor = workOutputHeading.style.borderBottomColor = techOutputHeading.style.borderBottomColor = declarationOutputHeading.style.borderBottomColor = color;
 

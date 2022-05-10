@@ -280,6 +280,37 @@
         border: 1px solid var(--primary-color);
     }
     
+    #gender-input,
+    #martial-input {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 5px;
+        padding-left: 20px;
+        align-items: center;
+    }
+    
+    #martial-input input {
+        margin-left: 5px;
+        margin-right: 40px;
+    }
+    
+    #gender-input input {
+        margin-left: 5px;
+        margin-right: 40px;
+    }
+    
+    #martial-input input:hover {
+        cursor: pointer;
+    }
+    
+    #gender-input input:hover {
+        cursor: pointer;
+    }
+    
     #generate-resume-btn {
         background-color: #eeee;
         padding: 5px;
@@ -331,6 +362,7 @@
         font-family: var(--secondary-font);
         margin-bottom: 10px;
         font-size: 35px;
+        color: var(--primary-color);
     }
     
     #name-output {
