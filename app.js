@@ -281,6 +281,15 @@ function generateResume() {
     techUl.innerHTML = str3;
 
     // for personal infromation
+    let martialValue = document.querySelector('input[name = "martial-radio-btn"]:checked').value;
+
+    martialInput.value = martialValue;
+
+    let genderValue = document.querySelector('input[name = "gender-radio-btn"]:checked').value;
+
+    genderInput.value = genderValue;
+
+
 
     if (dobInput.value || martialInput.value || genderInput.value || fatherInput.value || nationalityInput.value || langInput.value || hobbiesInput.value) {
 
@@ -292,21 +301,14 @@ function generateResume() {
             dobOutputRow.style.display = "none";
         }
 
-        let martialValue = document.querySelector('input[name = "martial-radio-btn"]:checked').value;
-
-        martialOutput.innerHTML = martialValue;
-
-
-        let genderValue = document.querySelector('input[name = "gender-radio-btn"]:checked').value;
-
-        genderOutput.innerHTML = genderValue;
-
-
         if (fatherInput.value) {
             fatherOutput.innerHTML = fatherInput.value;
         } else {
             fatherOutputRow.style.display = "none";
         }
+
+        genderOutput.innerHTML = genderValue;
+        martialOutput.innerHTML = martialValue;
 
         if (nationalityInput.value) {
             nationalityOutput.innerHTML = nationalityInput.value;
