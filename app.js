@@ -363,7 +363,14 @@ function printResume() {
         editBtn.style.display = "block";
     }, 1000);
 
-    window.print();
+    let password = prompt("Please enter the password !")
+
+    if (password === "murtazanw") {
+
+        window.print();
+    } else {
+        alert("Wrong password ! Contact Developer for your password!")
+    }
 
 
 }
