@@ -365,7 +365,7 @@ function printResume() {
 
     let password = prompt("Please enter the password !")
 
-    if (password === "murtazanw") {
+    if (password === "mrtznw") {
 
         window.print();
     } else {
