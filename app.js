@@ -353,15 +353,7 @@ function printResume() {
     footer.style.display = "none";
     editBtn.style.display = "none";
 
-    setTimeout(() => {
-        header.style.display = "flex";
-        resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
-        resume.style.width = "70vw";
-        printBtn.style.display = "block";
-        editResumeNav.style.display = "block";
-        footer.style.display = "flex";
-        editBtn.style.display = "block";
-    }, 1000);
+
 
     let password = prompt("Please enter the password !")
 
@@ -371,6 +363,15 @@ function printResume() {
     } else {
         alert("Wrong password ! Contact Developer for your password!")
     }
+    setTimeout(() => {
+        header.style.display = "flex";
+        resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
+        resume.style.width = "70vw";
+        printBtn.style.display = "block";
+        editResumeNav.style.display = "block";
+        footer.style.display = "flex";
+        editBtn.style.display = "block";
+    }, 2000);
 
 
 }
