@@ -344,34 +344,32 @@ function generateResume() {
 }
 
 function printResume() {
-
-    header.style.display = "none";
-    resume.style.boxShadow = "none";
-    resume.style.width = "100%";
-    printBtn.style.display = "none";
-    editResumeNav.style.display = "none";
-    footer.style.display = "none";
-    editBtn.style.display = "none";
-
-
-
     let password = prompt("Please enter the password !")
 
     if (password === "mrtznw") {
+        header.style.display = "none";
+        resume.style.boxShadow = "none";
+        resume.style.width = "100%";
+        printBtn.style.display = "none";
+        editResumeNav.style.display = "none";
+        footer.style.display = "none";
+        editBtn.style.display = "none";
 
         window.print();
+
+        setTimeout(() => {
+            header.style.display = "flex";
+            resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
+            resume.style.width = "70vw";
+            printBtn.style.display = "block";
+            editResumeNav.style.display = "block";
+            footer.style.display = "flex";
+            editBtn.style.display = "block";
+        }, 100);
+
     } else {
         alert("Wrong password ! Contact Developer for your password!")
     }
-    setTimeout(() => {
-        header.style.display = "flex";
-        resume.style.boxShadow = "2px 2px 20px rgba(0, 0, 0, 0.4), -2px -2px 20px rgba(0, 0, 0, 0.4)";
-        resume.style.width = "70vw";
-        printBtn.style.display = "block";
-        editResumeNav.style.display = "block";
-        footer.style.display = "flex";
-        editBtn.style.display = "block";
-    }, 2000);
 
 
 }
