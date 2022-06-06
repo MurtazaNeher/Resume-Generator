@@ -100,7 +100,7 @@ const nationalityOutput = document.getElementById("nationality-output");
 
 const langOutput = document.getElementById("lang-output");
 
-const hobbiesOutput = document.getElementById("hobbies-output-row");
+const hobbiesOutput = document.getElementById("hobbies-output");
 
 const dobOutputRow = document.getElementById("dob-output-row");
 
